@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
         //El valor de FUEL disminuye con el tiempo
         fuel = fuel - 1 * Time.deltaTime;
-        labelFuel.text = fuel.ToString("00") + "%";
+        labelFuel.text = fuel.ToString("00.0") + "%";
 
         if (fuel <= 0.0f)
         {
@@ -75,6 +75,9 @@ public class PlayerController : MonoBehaviour
             {
                 fuel = 100;
             }
+
+            //Reproducción del sonido
+            //collision.GetComponent<AudioSource>().Play();
 
             //Crear particulas de EXPLOSION
             Instantiate(prefabsParticles, collision.transform.position, collision.transform.rotation);
